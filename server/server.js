@@ -50,9 +50,7 @@ App.get('/', (req, res) => {
     console.log('get request');
     res.end('OK');
 })
-// App.get('/auth', (req,res) => {                
-//     res.send('hi')
-//     })
+
 
 App.post('/', parseImage.runTesseract,(req, res) => {
     console.log('received req', req.body);
