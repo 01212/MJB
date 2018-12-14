@@ -3,7 +3,8 @@ const BodyParser = require('body-parser');
 const FormDataParser = require('express-form-data');
 const parseImage = require('./parsingMiddleware');
 const config = require('./githubConfig');
-// const buildQuery = require ('') //need to fill this in
+const buildQuery = require ('./buildQuery.js');
+const writeDB = require ('./writeDB.js');
 const PORT = 3000;
 
 const App = Express();
@@ -46,15 +47,14 @@ App.get('/auth', function(req, res){
     res.json(JSON.stringify(token))
   })
 
-App.get('/', (req, res) => {
-    console.log('get request');
-    res.end('OK');
-})
+// App.get('/', (req, res) => {
+//     console.log('get request');
+//     res.end('OK');
+// })
+// App.get('/auth', (req,res) => {                
+//     res.send('hi')
+//     })
 
-
-App.post('/', parseImage.runTesseract,(req, res) => {
-    console.log('received req', req.body);
-    res.end('OK');
-});
+App.post('/', parseImage.runTesseract, buildQuery.tbSyn, writeDB.writeDB);
 
 App.listen(PORT);

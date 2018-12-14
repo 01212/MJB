@@ -74,7 +74,7 @@ const imageParser = {
     }
 }
 
-imageParser.runTesseract(testImgArr);
+// imageParser.runTesseract(testImgArr);
 
 
 

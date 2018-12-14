@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from './Container.jsx';
 
-class App extends React.Component {
+class Login extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -33,4 +33,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default Login;
