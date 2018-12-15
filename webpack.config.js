@@ -1,11 +1,12 @@
 const Path = require('path');
+const proxy = require('http-proxy-middleware');
 
 const Config = {
     mode: 'development',
 
     devServer: {
         publicPath: '/build',
-        port: 8080
+        port: 8080,
     },
 
     entry: {
@@ -14,7 +15,8 @@ const Config = {
 
     output: {
         filename: 'bundle.js',
-        path: Path.resolve(__dirname, 'build/')
+        path: Path.resolve(__dirname, 'build/'),
+        publicPath:'/'
     },
 
     module: {
@@ -32,3 +34,8 @@ const Config = {
 }
 
 module.exports = Config;
+
+
+// proxy: {
+//     '/api': 'http://localhost:3000/',
+// }

@@ -6,20 +6,10 @@ class Login extends React.Component {
         super(props)
         this.state = {
             images: [],
-            uploading: false,
+            uploading: false
         }
 
-        this.addToState = this.addToState.bind(this);
-        this.submit = this.submit.bind(this); 
-    }
-
-    login(){
-        fetch('http://localhost:3000/auth')
-        .then(result => {
-            console.log(result);
-          
-        })
-        .catch(err => console.log(err))
+      
     }
 
 
@@ -27,7 +17,8 @@ class Login extends React.Component {
         return (
             <div>
                 <h1>LOGIN WITH GITHUB</h1>
-                <button>LOGIN</button>
+                <button onClick = {(e) => this.login(e)}>LOGIN</button>
+                <a href = "http://localhost:3000/api/auth/github">LINK</a>
             </div>
         )
     }

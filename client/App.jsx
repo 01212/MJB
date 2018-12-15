@@ -2,7 +2,10 @@ import React from 'react';
 import Container from './Container.jsx';
 import { runInThisContext } from 'vm';
 import Login from './login.jsx';
-import uploadPage from './uploadPage.jsx';
+import UploadPage from './uploadPage.jsx';
+// import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router'
+import { BrowserRouter, NavLink, Switch, Route } from 'react-router-dom';
+import Upload from './Upload.jsx';
 
 class App extends React.Component {
     constructor() {
@@ -11,19 +14,20 @@ class App extends React.Component {
             loggedIn: false,
             display: <Login />
         }
-
-
     }
 
-    componentDidMount(){
-
-    }
 
     render() {
         return (
             <div>
-                {this.state.display}
-                <h1>HELLO</h1>
+    
+              <BrowserRouter>
+              <Switch>
+                    <Route exact path='/' component={Login}></Route>
+                    <Route exact path='/upload' component={UploadPage}></Route>
+                </Switch>
+              </BrowserRouter>
+                {/* {this.state.display} */}
             </div>
         )
     }

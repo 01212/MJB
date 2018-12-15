@@ -1,5 +1,6 @@
 var TesseractJS = require('tesseract.js')
 
+
 const imageParser = {
 
     textToObj: (textArr) => {
